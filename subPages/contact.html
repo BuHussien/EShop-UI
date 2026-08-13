@@ -1,22 +1,107 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JARA</title>
+    <link
+      rel="stylesheet"
+      href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
 
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Document</title>
+  <body>
+    <!-- HEADER -->
+    <section id="header">
+      <a href="#"><img src="../img/logo.png" class="logo" alt="" /></a>
+      <nav>
+        <ul id="navbar">
+          <li>
+            <a href="#" id="close"><i class="fas fa-times"></i></a>
+          </li>
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="../subPages/shop.html">Shop</a></li>
+          <li><a href="../subPages/blog.html">Blog</a></li>
+          <li><a href="../subPages/about.html">about</a></li>
+          <li><a class="active" href="../subPages/contact.html">Contact</a></li>
+          <li>
+            <a href="../subPages/cart.html"
+              ><i class="fa-solid fa-bag-shopping head-cart"></i
+            ></a>
+          </li>
+        </ul>
+      </nav>
+      <div id="mobile">
+        <a href="subPages/cart.html"
+          ><i class="fa-solid fa-bag-shopping head-cart"></i
+        ></a>
+        <i id="bar" class="fas fa-outdent"></i>
+      </div>
+    </section>
 
-        <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
+    <!-- FOOTER -->
+    <footer class="section-p1">
+      <div class="col">
+        <img class="logo" src="img/logo.png" alt="Logo" />
+        <h4>Contact</h4>
+        <p><strong>Address:</strong> 123 Main Street, Cairo, Egypt</p>
+        <p><strong>Phone:</strong> +20 123 456 7890</p>
+        <p><strong>Hours:</strong> 10:00 - 18:00, Mon - Sat</p>
+        <div class="follow">
+          <h4>Follow Us</h4>
+          <div class="icon">
+            <i class="fab fa-facebook-f"></i>
+            <i class="fab fa-twitter"></i>
+            <i class="fab fa-instagram"></i>
+            <i class="fab fa-youtube"></i>
+          </div>
+        </div>
+      </div>
 
-        <link rel="stylesheet" href="style.css">
-    </head>
+      <div class="col">
+        <h4>About</h4>
+        <a href="#">About Us</a>
+        <a href="#">Delivery Information</a>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms & Conditions</a>
+        <a href="#">Contact Us</a>
+      </div>
 
-    <body>
+      <div class="col">
+        <h4>My Account</h4>
+        <a href="#">Sign In</a>
+        <a href="#">View Cart</a>
+        <a href="#">My Wishlist</a>
+        <a href="#">Track My Order</a>
+        <a href="#">Help</a>
+      </div>
 
+      <div class="col install">
+        <h4>Install App</h4>
+        <p>From App Store or Google Play</p>
+        <div class="row">
+          <img src="../img/pay/app.jpg" alt="App Store" />
+          <img src="../img/pay/play.jpg" alt="Google Play" />
+        </div>
+        <p>Secured Payment Gateways</p>
+        <img src="img/pay/pay.png" alt="Payment Methods" />
+      </div>
 
-        <script src="script.js"></script>
+      <div class="copyright">
+        <p>© 2026, JARA - HTML CSS Ecommerce Template</p>
+      </div>
+    </footer>
 
-    </body>
-
+    <script src="js/script.js"></script>
+  </body>
 </html>
