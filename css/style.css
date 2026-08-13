@@ -738,6 +738,105 @@ p {
   height: 100%;
   border-radius: 20px;
 }
+/* CONTACT PAGE */
+#contact {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+#contact p {
+  color: gray;
+}
+#contact .details {
+  width: 40%;
+
+}
+#contact .details span,
+#form-details form span {
+  font-size: 12px;
+  color: gray;
+  font-weight: 600;
+}
+#contact .details h2,
+#form-details form h2 {
+  font-size: 26px;
+  line-height: 35px;
+  padding: 20px 0;
+  font-weight: 400;
+}
+#contact .details h3 {
+  font-size: 16px;
+  padding-bottom: 15px;
+}
+#contact .details li{
+  display: flex;
+  list-style: none;
+  padding: 10px 0;
+}
+#contact .details li i{
+  font-size: 14px;
+  padding-right: 22px;
+}
+#contact .details li p{
+  margin: 0;
+  font-size: 14px;
+}
+#contact .map{
+  width: 55%;
+  height: 400px;
+}
+#contact .map iframe{
+  width: 100%;
+  height: 400px;
+}
+#form-details{
+  display: flex;
+  margin: 30px;
+  padding: 80px;
+  border: 1px solid #e1e1e1;
+  justify-content: space-between;
+}
+#form-details form{
+  display: flex;
+  flex-direction: column;
+  width: 65%;
+  align-items: flex-start;
+}
+#form-details input,
+#form-details textarea{
+  width: 100%;
+  padding: 12px 15px;
+  outline: none;
+  margin-bottom: 20px;
+  border: 1px solid #e1e1e1;
+}
+#form-details button{
+  background-color: #088178;
+  color: #fff;
+}
+#form-details .members div p{
+  color: gray;
+  font-size: 13px;
+  line-height: 25px;
+}
+#form-details .members div p span{
+  display: block;
+  color: black;
+  font-size: 16px;
+  line-height: 25px;
+  font-weight: 600;
+}
+#form-details .members div{
+  padding-bottom: 25px;
+  display: flex;
+}
+#form-details .members div img{
+  width: 65px;
+  height: 65px;
+  object-fit: cover;
+  margin-right: 15px;
+}
+
 /* MEDIA QUIRIES */
 @media (max-width: 799px) {
   #navbar {
