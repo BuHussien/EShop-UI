@@ -23,26 +23,29 @@
   <body>
     <!-- HEADER -->
     <section id="header">
-      <a href="#"><img src="../img/logo.png" class="logo" alt="" /></a>
+      <a href="../index.html"
+        ><img src="../img/logo.png" class="logo" alt=""
+      /></a>
       <nav>
         <ul id="navbar">
           <li>
             <a href="#" id="close"><i class="fas fa-times"></i></a>
           </li>
           <li><a href="../index.html">Home</a></li>
-          <li><a class="active" href="subPages/shop.html">Shop</a></li>
-          <li><a href="subPages/blog.html">Blog</a></li>
-          <li><a href="subPages/about.html">about</a></li>
-          <li><a href="subPages/contact.html">Contact</a></li>
+          <li><a class="active" href="shop.html">Shop</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="about.html">about</a></li>
+          <li><a href="contact.html">Contact</a></li>
           <li>
-            <a href="subPages/cart.html"
-              ><i class="fa-solid fa-bag-shopping head-cart"></i
-            ></a>
+            <a href="cart.html" style="position: relative">
+              <i class="fa-solid fa-bag-shopping head-cart"></i>
+              <span class="cart-count">0</span>
+            </a>
           </li>
         </ul>
       </nav>
       <div id="mobile">
-        <a href="subPages/cart.html"
+        <a href="cart.html"
           ><i class="fa-solid fa-bag-shopping head-cart"></i
         ></a>
         <i id="bar" class="fas fa-outdent"></i>
@@ -88,9 +91,9 @@
         </div>
       </div>
       <div class="single-product-details">
-        <h6>Home/T-Shirt</h6>
-        <h4>Mens fashion T-SHIRT</h4>
-        <h2>$139.00</h2>
+        <h6 id="productBreadcrumb">Home/T-Shirt</h6>
+        <h4 id="productName">Mens fashion T-SHIRT</h4>
+        <h2 id="productPrice">$139.00</h2>
         <select name="" id="">
           <option>Select size</option>
           <option>Small</option>
@@ -98,8 +101,8 @@
           <option>XL</option>
           <option>XXL</option>
         </select>
-        <input type="number" value="1" />
-        <button class="normal">Add to cart</button>
+        <input type="number" value="1" id="qtyInput" min="1" />
+        <button class="normal" id="addToCartBtn">Add to cart</button>
         <h4>product details</h4>
         <span>
           The Gildan Ultra Cotton T-shirt is made from a substantial 6.0 oz. per
@@ -114,74 +117,9 @@
 
     <!-- PRODUCTS -->
     <section id="products" class="section-p1">
-      <h2>Featured Products</h2>
+      <h2>Related Products</h2>
       <p>Summer Collection New Modern Design</p>
-      <div class="product-container">
-        <div class="product">
-          <img src="/img/products/n1.jpg" alt="" />
-          <div class="description">
-            <span class="brand-name">adidas</span>
-            <h5>Cartoon Astronaut T-Shirts</h5>
-            <div class="stars">
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-            </div>
-            <h4 class="price">44$</h4>
-          </div>
-          <a href="#"><i class="fal fa-shopping-cart cart"></i></a>
-        </div>
-        <div class="product">
-          <img src="/img/products/n2.jpg" alt="" />
-          <div class="description">
-            <span class="brand-name">adidas</span>
-            <h5>Cartoon Astronaut T-Shirts</h5>
-            <div class="stars">
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-            </div>
-            <h4 class="price">99$</h4>
-          </div>
-          <a href="#"><i class="fal fa-shopping-cart cart"></i></a>
-        </div>
-        <div class="product">
-          <img src="/img/products/n3.jpg" alt="" />
-          <div class="description">
-            <span class="brand-name">adidas</span>
-            <h5>Cartoon Astronaut T-Shirts</h5>
-            <div class="stars">
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-            </div>
-            <h4 class="price">79$</h4>
-          </div>
-          <a href="#"><i class="fal fa-shopping-cart cart"></i></a>
-        </div>
-        <div class="product">
-          <img src="/img/products/n4.jpg" alt="" />
-          <div class="description">
-            <span class="brand-name">adidas</span>
-            <h5>Cartoon Astronaut T-Shirts</h5>
-            <div class="stars">
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-            </div>
-            <h4 class="price">99$</h4>
-          </div>
-          <a href="#"><i class="fal fa-shopping-cart cart"></i></a>
-        </div>
-      </div>
+      <div class="product-container" id="related-products-container"></div>
     </section>
 
     <!-- NEWSLETTER -->
@@ -252,18 +190,56 @@
       </div>
     </footer>
 
+    <script src="../js/products.js"></script>
+    <script src="../js/cart.js"></script>
+    <script src="../js/render.js"></script>
+    <script src="../js/script.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", function () {
-        var mainIMG = document.getElementById("mainIMG");
-        var subIMGs = document.getElementsByClassName("small-img");
+        const mainIMG = document.getElementById("mainIMG");
+        const subIMGs = document.getElementsByClassName("small-img");
 
         for (let i = 0; i < subIMGs.length; i++) {
           subIMGs[i].onclick = function () {
             mainIMG.src = this.src;
           };
         }
+
+        // Find the product from the ?id= query param
+        const allProducts = [...products, ...newArrivalProducts];
+        const params = new URLSearchParams(window.location.search);
+        const requestedId = params.get("id");
+        const product =
+          allProducts.find((p) => p.id === requestedId) || allProducts[0];
+
+        if (!product) return;
+
+        // Fill in the product details
+        mainIMG.src = product.image;
+        document.getElementById("productBreadcrumb").textContent =
+          "Home/" + product.brand;
+        document.getElementById("productName").textContent = product.name;
+        document.getElementById("productPrice").textContent =
+          "$" + product.cost.toFixed(2);
+
+        // Add to cart
+        const addToCartBtn = document.getElementById("addToCartBtn");
+        const qtyInput = document.getElementById("qtyInput");
+        addToCartBtn.addEventListener("click", function () {
+          const qty = parseInt(qtyInput.value, 10) || 1;
+          addToCart(product, qty);
+          addToCartBtn.textContent = "Added!";
+          setTimeout(() => (addToCartBtn.textContent = "Add to cart"), 1200);
+        });
+
+        // Related products (everything else)
+        const related = shuffleArray(
+          allProducts.filter((p) => p.id !== product.id),
+        ).slice(0, 4);
+        renderProducts(related, "related-products-container", {
+          productPagePath: "sproduct.html",
+        });
       });
     </script>
-    <script src="../js/script.js"></script>
   </body>
 </html>

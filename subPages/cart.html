@@ -23,7 +23,7 @@
   <body>
     <!-- HEADER -->
     <section id="header">
-      <a href="#"><img src="../img/logo.png" class="logo" alt="" /></a>
+      <a href="../index.html"><img src="../img/logo.png" class="logo" alt="" /></a>
       <nav>
         <ul id="navbar">
           <li>
@@ -42,7 +42,7 @@
         </ul>
       </nav>
       <div id="mobile">
-        <a href="subPages/cart.html"
+        <a href="cart.html"
           ><i class="fa-solid fa-bag-shopping head-cart"></i
         ></a>
         <i id="bar" class="fas fa-outdent"></i>
@@ -68,37 +68,8 @@
             <td>SubTotal</td>
           </tr>
         </thead>
-        <tbody>
-          <tr>
-            <td>
-              <a href="#"><i class="far fa-times-circle"></i></a>
-            </td>
-            <td><img src="../img/products/f1.jpg" alt="" /></td>
-            <td>Cartoon Astronaut T-Shirts</td>
-            <td>$118.19</td>
-            <td><input type="number" name="" id="" value="2" /></td>
-            <td>118.19</td>
-          </tr>
-          <tr>
-            <td>
-              <a href="#"><i class="far fa-times-circle"></i></a>
-            </td>
-            <td><img src="../img/products/f2.jpg" alt="" /></td>
-            <td>Cartoon Astronaut T-Shirts</td>
-            <td>$118.19</td>
-            <td><input type="number" name="" id="" value="1" /></td>
-            <td>118.19</td>
-          </tr>
-          <tr>
-            <td>
-              <a href="#"><i class="far fa-times-circle"></i></a>
-            </td>
-            <td><img src="../img/products/f3.jpg" alt="" /></td>
-            <td>Cartoon Astronaut T-Shirts</td>
-            <td>$118.19</td>
-            <td><input type="number" name="" id="" value="1" /></td>
-            <td>118.19</td>
-          </tr>
+        <tbody id="cartTableBody">
+          
         </tbody>
       </table>
     </section>
@@ -115,7 +86,7 @@
         <table>
           <tr>
             <td>Cart Subtotal</td>
-            <td>$ 335</td>
+            <td id="cartSubtotal">$ 335</td>
           </tr>
           <tr>
             <td>Shipping</td>
@@ -123,7 +94,7 @@
           </tr>
           <tr>
             <td><strong>Total</strong></td>
-            <td><strong>$ 335</strong></td>
+            <td><strong id="cartTotal">$ 335</strong></td>
           </tr>
         </table>
         <button class="normal">Proceed to checkout</button>
@@ -183,6 +154,58 @@
       </div>
     </footer>
 
-    <script src="js/script.js"></script>
+    <script src="../js/cart.js"></script>
+    <script src="../js/script.js"></script>
+    <script>
+      function renderCartPage() {
+        const cart = getCart();
+        const tbody = document.getElementById("cartTableBody");
+        tbody.innerHTML = "";
+
+        if (cart.length === 0) {
+          tbody.innerHTML =
+            '<tr><td colspan="6" style="text-align:center;padding:20px;">Your cart is empty</td></tr>';
+        }
+
+        cart.forEach((item) => {
+          const subtotal = item.cost * item.qty;
+          const tr = document.createElement("tr");
+          tr.innerHTML = `
+            <td><a href="#" class="remove-item" data-id="${item.id}"><i class="far fa-times-circle"></i></a></td>
+            <td><img src="${item.image}" alt="${item.name}" /></td>
+            <td>${item.name}</td>
+            <td>$${item.cost.toFixed(2)}</td>
+            <td><input type="number" min="1" value="${item.qty}" class="qty-input" data-id="${item.id}" /></td>
+            <td>$${subtotal.toFixed(2)}</td>
+          `;
+          tbody.appendChild(tr);
+        });
+
+        // Remove item
+        tbody.querySelectorAll(".remove-item").forEach((btn) => {
+          btn.addEventListener("click", (e) => {
+            e.preventDefault();
+            removeFromCart(btn.dataset.id);
+            renderCartPage();
+          });
+        });
+
+        // Update quantity
+        tbody.querySelectorAll(".qty-input").forEach((input) => {
+          input.addEventListener("change", () => {
+            updateCartItemQty(input.dataset.id, input.value);
+            renderCartPage();
+          });
+        });
+
+        const total = getCartTotal();
+        document.getElementById("cartSubtotal").textContent =
+          "$ " + total.toFixed(2);
+        document.getElementById("cartTotal").textContent =
+          "$ " + total.toFixed(2);
+      }
+
+      document.addEventListener("DOMContentLoaded", renderCartPage);
+    </script>
   </body>
 </html>
