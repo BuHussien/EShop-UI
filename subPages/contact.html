@@ -23,7 +23,9 @@
   <body>
     <!-- HEADER -->
     <section id="header">
-      <a href="#"><img src="../img/logo.png" class="logo" alt="" /></a>
+      <a href="../index.html"
+        ><img src="../img/logo.png" class="logo" alt=""
+      /></a>
       <nav>
         <ul id="navbar">
           <li>
@@ -35,16 +37,18 @@
           <li><a href="../subPages/about.html">about</a></li>
           <li><a class="active" href="../subPages/contact.html">Contact</a></li>
           <li>
-            <a href="../subPages/cart.html"
-              ><i class="fa-solid fa-bag-shopping head-cart"></i
-            ></a>
+            <a href="cart.html" style="position: relative">
+              <i class="fa-solid fa-bag-shopping head-cart"></i>
+              <span class="cart-count">0</span>
+            </a>
           </li>
         </ul>
       </nav>
       <div id="mobile">
-        <a href="subPages/cart.html"
-          ><i class="fa-solid fa-bag-shopping head-cart"></i
-        ></a>
+        <a href="cart.html" style="position: relative">
+          <i class="fa-solid fa-bag-shopping head-cart"></i>
+          <span class="cart-count">0</span>
+        </a>
         <i id="bar" class="fas fa-outdent"></i>
       </div>
     </section>
@@ -98,27 +102,33 @@
       <form action="">
         <span>LEAVE A MESSAGE</span>
         <h2>We love to hear from YOU</h2>
-        <input type="text" placeholder="Your NAme">
-        <input type="email" placeholder="Your Email">
-        <input type="text" placeholder="Subject">
+        <input type="text" placeholder="Your NAme" />
+        <input type="email" placeholder="Your Email" />
+        <input type="text" placeholder="Subject" />
         <textarea name="" id="" cols="30" rows="5" placeholder="Your Message"></textarea>
         <button class="normal">Submit</button>
-      </form> 
+      </form>
       <div class="members">
         <div>
-          <img src="../img/people/1.png" alt="">
-          <p><span>Ahmed Esam</span> Junior Software Engineer<br>Phone: +20 10843434452
-          <br>Email: ahmed@gmail.com</p>
+          <img src="../img/people/1.png" alt="" />
+          <p>
+            <span>Ahmed Esam</span> Junior Software Engineer<br />Phone: +20
+            10843434452 <br />Email: ahmed@gmail.com
+          </p>
         </div>
         <div>
-          <img src="../img/people/2.png" alt="">
-          <p><span>Mohamed Ahmed</span> Senior Software Engineer<br>Phone: +20 108434353462
-          <br>Email: medo@gmail.com</p>
+          <img src="../img/people/2.png" alt="" />
+          <p>
+            <span>Mohamed Ahmed</span> Senior Software Engineer<br />Phone: +20
+            108434353462 <br />Email: medo@gmail.com
+          </p>
         </div>
         <div>
-          <img src="../img/people/3.png" alt="">
-          <p><span>Mossad Sonbol</span> Senior Marketing Manager<br>Phone: +20 1034534634534
-          <br>Email: sonbol@gmail.com</p>
+          <img src="../img/people/3.png" alt="" />
+          <p>
+            <span>Mossad Sonbol</span> Senior Marketing Manager<br />Phone: +20
+            1034534634534 <br />Email: sonbol@gmail.com
+          </p>
         </div>
       </div>
     </section>
