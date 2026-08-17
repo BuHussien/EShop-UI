@@ -14,3 +14,10 @@ if (close) {
     nav.classList.remove('active');
   });
 }
+
+document.getElementById('exploreBtn').addEventListener('click', () => {
+  window.location.href = '../subPages/shop.html';
+});
+document.getElementById('shop-now').addEventListener('click', () => {
+  window.location.href = '../subPages/shop.html';
+});
